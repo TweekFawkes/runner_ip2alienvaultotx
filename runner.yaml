@@ -1,0 +1,27 @@
+runner:
+  name: IP to AlienVault OTX
+  description: Queries via AlienVault OTX for the provided IP address.
+  version: 0.0.1
+
+build:
+  commands: |
+    echo "START: Building the runner"
+    apt update
+    apt install -y python3
+    apt install -y python3-pip
+    apt install -y python-is-python3
+    python3 -m pip install -r requirements.txt
+    echo "END: Building the runner"
+
+webform:
+  - name: ip_address
+    prompt: IP Address
+    type: text
+  - name: otx_api_key
+    prompt: AlienVault OTX API Key
+    type: text
+    env_var: OTX_API_KEY
+
+launch:
+  type: python
+  command: app.py ${ip_address}
