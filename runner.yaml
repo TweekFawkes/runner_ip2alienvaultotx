@@ -17,10 +17,6 @@ webform:
   - name: ip_address
     prompt: IP Address
     type: text
-  - name: otx_api_key
-    prompt: AlienVault OTX API Key
-    type: text
-    env_var: OTX_API_KEY
 
 launch:
   type: python
